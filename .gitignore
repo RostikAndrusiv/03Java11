@@ -1,0 +1,10 @@
+# Project exclude paths
+/jmp-application/target/
+/jmp-bank-api/target/
+/jmp-cloud-bank-impl/target/
+/jmp-cloud-service-impl/target/
+/jmp-dto/target/
+/jmp-model/target/
+/jmp-repository/target/
+/jmp-service-api/target/
+/jmp-util/target/
