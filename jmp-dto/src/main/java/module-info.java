@@ -1,5 +1,3 @@
-open module jmp.dto {
-
+module jmp.dto {
     exports jmp.dto;
-
 }

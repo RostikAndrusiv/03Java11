@@ -1,8 +1,10 @@
 package jmp.dto;
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class UserDto {
-    int id;
+public class UserDto implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private transient int id;
     private String name;
     private String surName;
     private LocalDate dob;
@@ -14,6 +16,10 @@ public class UserDto {
     }
 
     public UserDto() {
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public int getId() {

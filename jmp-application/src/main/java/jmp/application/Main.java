@@ -17,6 +17,11 @@ import java.util.OptionalDouble;
 import java.util.function.Predicate;
 
 //TODO rename repository jmp-dao , aplication jmp-app, separate entity/dto... DONE ALL
+//TODO dependency version in parent, java 11 in single parent pom, scope compile delete, parent in top... DONE ALL
+//TODO clean maven cache, create tests
+//TOTO optional of and ofNullable
+//TODO lombok, try w res in dao... DONE ALL
+//TODO refactor hibernateUtil (if)... DONE ALL
 public class Main {
     private static final UserService userService = new UserService();
     private static final SubscriptionService subscriptionService = new SubscriptionService();
@@ -26,7 +31,7 @@ public class Main {
     public static void main(String[] args) {
 
         var user = new UserDto("qwe", "qwe", LocalDate.parse("1990-05-01"));
-        var user1 = new UserDto("zxc", "zxc", LocalDate.parse("2000-05-01"));
+        var user1 = new UserDto("zxc", "zxc", LocalDate.parse("2010-05-01"));
         userService.saveUser(user);
         userService.saveUser(user1);
 

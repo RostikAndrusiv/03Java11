@@ -6,10 +6,10 @@ import javax.persistence.*;
 public class BankCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String number;
+    private int id;
+    private String number;
     @OneToOne(cascade= CascadeType.ALL)
-    User user;
+    private User user;
 
     public BankCard(String number, User user) {
         this.number = number;

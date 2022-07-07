@@ -7,9 +7,9 @@ import java.util.Objects;
 
 public class SubscriptionDto {
 
-    int id;
-    String bankCard;
-    LocalDate startDate;
+    private int id;
+    private String bankCard;
+    private LocalDate startDate;
 
     public SubscriptionDto() {
     }

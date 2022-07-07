@@ -14,12 +14,6 @@ import java.util.function.Predicate;
 
 public interface Service {
 
-    static Service getImplementation(){
-        return ServiceLoader
-                .load(Service.class)
-                .findFirst().orElseThrow(RuntimeException::new);
-    }
-
     void subscribe(BankCardDto bankCardDto);
 
     Optional<SubscriptionDto> getSubscriptionByBankCardNumber(String cardNumber);
@@ -38,5 +32,11 @@ public interface Service {
 
     static boolean isPayable(UserDto userDto) {
         return 18 < ChronoUnit.YEARS.between(userDto.getDob(), LocalDate.now());
+    }
+
+    static Service getImplementation(){
+        return ServiceLoader
+                .load(Service.class)
+                .findFirst().orElseThrow(RuntimeException::new);
     }
 }

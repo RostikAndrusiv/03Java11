@@ -1,6 +1,9 @@
 package jmp.dto;
 
-public class CreditBankCard extends BankCardDto {
+import java.io.Serializable;
+
+public class CreditBankCard extends BankCardDto implements Serializable {
+    private static final long serialVersionUID=1L;
 
     public CreditBankCard(String number, UserDto userDto) {
         super(number, userDto);

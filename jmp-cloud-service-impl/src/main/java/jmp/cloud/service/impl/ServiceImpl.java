@@ -32,14 +32,13 @@ public class ServiceImpl implements Service {
 
     @Override
     public Optional<SubscriptionDto> getSubscriptionByBankCardNumber(String cardNumber) {
-        var sub = subscriptionDao.getSubscriptionByCardNumber(cardNumber);
-        return Optional.ofNullable(subscriptionMapper.subscriptionToDto(sub));
+        return Optional.ofNullable(subscriptionDao.getSubscriptionByCardNumber(cardNumber))
+                .map(subscriptionMapper::subscriptionToDto);
     }
 
     @Override
     public List<UserDto> getAllUsers() {
-        var users = userDao.getAllUsers();
-        return users.stream()
+        return userDao.getAllUsers().stream()
                 .map(userMapper::userToDto)
                 .collect(Collectors.toUnmodifiableList());
     }

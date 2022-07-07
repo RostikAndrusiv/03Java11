@@ -1,4 +1,4 @@
-module jmp.service.api {
+open module jmp.service.api {
     requires jmp.dto;
     requires jmp.repository;
     exports jmp.service.api;

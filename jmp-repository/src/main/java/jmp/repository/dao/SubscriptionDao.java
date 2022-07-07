@@ -8,12 +8,13 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class SubscriptionDao {
+
     public void save(Subscription subscription) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
-            // save the student object
+            // save the subscription object
             session.save(subscription);
             // commit transaction
             transaction.commit();
@@ -26,8 +27,7 @@ public class SubscriptionDao {
     }
 
     public List<Subscription> getAllSubscriptions() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createNativeQuery(
                     "Select * from subscription", Subscription.class).getResultList();
         } catch (Exception e) {
@@ -36,8 +36,7 @@ public class SubscriptionDao {
     }
 
     public Subscription getSubscriptionByCardNumber(String bankCardNumber) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             var subscriptionList = session.createNativeQuery(
                     "Select * from subscription where bankCard = :bankCardNumber", Subscription.class)
                     .setParameter("bankCardNumber", bankCardNumber)

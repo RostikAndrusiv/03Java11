@@ -11,9 +11,9 @@ public class Subscription {
 
     @Id
     @GeneratedValue
-    int id;
-    String bankCard;
-    LocalDate startDate;
+    private int id;
+    private String bankCard;
+    private LocalDate startDate;
 
     public Subscription() {
     }

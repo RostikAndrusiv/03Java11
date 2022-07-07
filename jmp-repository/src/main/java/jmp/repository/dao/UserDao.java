@@ -13,7 +13,7 @@ public class UserDao {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
-            // save the student object
+            // save the user object
             session.save(user);
             // commit transaction
             transaction.commit();
@@ -26,13 +26,11 @@ public class UserDao {
     }
 
     public List<User> getAllUsers() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
             return session.createNativeQuery("Select * from user", User.class).getResultList();
         } catch (Exception e) {
             return null;
-        } finally {
-            session.close();
         }
     }
 }

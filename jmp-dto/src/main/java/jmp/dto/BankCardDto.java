@@ -1,9 +1,12 @@
 package jmp.dto;
 
-public class BankCardDto {
-    int id;
-    String number;
-    UserDto userDto;
+import java.io.Serializable;
+
+public class BankCardDto implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private transient int id;
+    private String number;
+    private UserDto userDto;
 
     public BankCardDto(String number, UserDto userDto) {
         this.number = number;
